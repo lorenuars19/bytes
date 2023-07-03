@@ -2,9 +2,9 @@
 pub(crate) mod sync {
     pub(crate) mod atomic {
         #[cfg(not(feature = "extra-platforms"))]
-        pub(crate) use core::sync::atomic::{ AtomicPtr, AtomicUsize, Ordering };
+        pub(crate) use core::sync::atomic::*;
         #[cfg(feature = "extra-platforms")]
-        pub(crate) use portable_atomic::{ AtomicPtr, AtomicUsize, Ordering };
+        pub(crate) use portable_atomic::*;
 
         pub(crate) trait AtomicMut<T> {
             fn with_mut<F, R>(&mut self, f: F) -> R where F: FnOnce(&mut *mut T) -> R;
